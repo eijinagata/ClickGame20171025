@@ -10,10 +10,16 @@ public class SphereContlole : MonoBehaviour {
     }
     private void OnCollisionEnter(Collision other)
     {
-        GetComponent<Rigidbody>().isKinematic = true;
+        if (other.gameObject.tag == "Ground")
+        {
+            GetComponent<Rigidbody>().isKinematic = true;
+            Debug.Log("判定おけ");
+            Destroy(this.gameObject);
+        }
     }
     void Start () {
-	
+
+       
 	}
 	
 	// Update is called once per frame
